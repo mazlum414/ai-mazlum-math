@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilimsel Tartışma ve Matematiksel Araçlar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Bilimsel Tartışma ve Matematiksel Araçlar</h1>
+        <nav>
+            <ul>
+                <li><a href="#commentsSection">Yorumlar</a></li>
+                <li><a href="#surveySection">Anketler</a></li>
+                <li><a href="#taskSection">Görev Listesi</a></li>
+                <li><a href="#mathSection">Hesap Makinesi</a></li>
+                <li><a href="#profileSection">Profil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="commentsSection">
+        <h2>Yorumlar</h2>
+        <form id="commentForm">
+            <textarea id="commentText" placeholder="Yorumunuzu yazın"></textarea>
+            <button type="submit">Yorum Yap</button>
+        </form>
+        <div id="commentsList"></div>
+    </section>
+
+    <section id="surveySection">
+        <h2>Anketler</h2>
+        <form id="surveyForm">
+            <input type="text" id="surveyQuestion" placeholder="Anket sorusu">
+            <input type="text" id="surveyOptions" placeholder="Seçenekler (virgülle ayırın)">
+            <button type="submit">Anket Oluştur</button>
+        </form>
+        <div id="surveyList"></div>
+    </section>
+
+    <section id="taskSection">
+        <h2>Görev Listesi</h2>
+        <form id="taskForm">
+            <input type="text" id="taskName" placeholder="Görev adı">
+            <input type="datetime-local" id="taskDeadline">
+            <button type="submit">Görev Ekle</button>
+        </form>
+        <div id="taskList"></div>
+    </section>
+
+    <section id="mathSection">
+        <h2>Hesap Makinesi</h2>
+        <form id="mathForm">
+            <input type="text" id="mathExpression" placeholder="Matematiksel ifade">
+            <button type="submit">Hesapla</button>
+        </form>
+        <div id="mathResult"></div>
+    </section>
+
+    <section id="profileSection">
+        <h2>Kullanıcı Profili</h2>
+        <div id="profileUsername"></div>
+        <form id="updateProfileForm">
+            <input type="text" id="newUsername" placeholder="Yeni kullanıcı adı">
+            <input type="password" id="newPassword" placeholder="Yeni şifre">
+            <button type="submit">Profil Güncelle</button>
+        </form>
+        <form id="updatePasswordForm">
+            <input type="password" id="oldPassword" placeholder="Eski şifre">
+            <input type="password" id="newPassword" placeholder="Yeni şifre">
+            <button type="submit">Şifreyi Güncelle</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2025 Bilimsel Tartışma ve Matematiksel Araçlar</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

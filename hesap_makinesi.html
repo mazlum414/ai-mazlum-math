@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hesap Makinesi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Matematiksel Hesap Makinesi</h1>
+        <a href="index.html">Ana Sayfa</a>
+    </header>
+    <main>
+        <input type="text" id="calcInput" placeholder="İşlemi girin (örnek: 5+3)">
+        <button onclick="calculate()">Hesapla</button>
+        <p id="calcResult"></p>
+    </main>
+    <script>
+        function calculate() {
+            let input = document.getElementById("calcInput").value;
+            document.getElementById("calcResult").innerText = "Sonuç: " + eval(input);
+        }
+    </script>
+</body>
+</html>

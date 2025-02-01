@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Math Solver</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.7.0/math.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.21.0/plotly.min.js"></script>
+    <script src="https://unpkg.com/tesseract.js@v3.0.3/dist/tesseract.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS burada aynı kalacak */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Math Solver & Chat</h1>
+        <div class="upload-section">
+            <input type="file" id="imageInput" accept="image/*" hidden>
+            <button onclick="document.getElementById('imageInput').click()">📷 Fotoğraf Yükle</button>
+            <input type="file" id="pdfInput" accept="application/pdf" hidden>
+            <button onclick="document.getElementById('pdfInput').click()">📄 PDF Yükle</button>
+            <img id="preview">
+            <div id="loader"></div>
+        </div>
+
+        <div class="input-section">
+            <input type="text" id="problemInput" placeholder="Matematik problemini yazın...">
+            <button onclick="solveProblem()">Çöz</button>
+        </div>
+
+        <div class="result-section" id="resultSection">
+            <h2>Çözüm:</h2>
+            <div id="result"></div>
+        </div>
+
+        <div id="graph-section" style="margin-top: 2rem;">
+            <h2>Grafik Çiz</h2>
+            <div id="graph"></div>
+        </div>
+
+        <div id="chat-section">
+            <h2>Chat Odaları</h2>
+            <div id="chat-room"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

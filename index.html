@@ -3,79 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bilimsel Tartışma ve Matematiksel Araçlar</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Bilimsel Çalışmalar</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
 </head>
 <body>
     <header>
-        <h1>Bilimsel Tartışma ve Matematiksel Araçlar</h1>
+        <h1>Bilimsel Çalışmalar ve Tartışmalar</h1>
         <nav>
             <ul>
-                <li><a href="#commentsSection">Yorumlar</a></li>
-                <li><a href="#surveySection">Anketler</a></li>
-                <li><a href="#taskSection">Görev Listesi</a></li>
-                <li><a href="#mathSection">Hesap Makinesi</a></li>
-                <li><a href="#profileSection">Profil</a></li>
+                <li><a href="#makaleler">Makaleler</a></li>
+                <li><a href="#yorumlar">Yorumlar</a></li>
+                <li><a href="#hesapmakinesi">Hesap Makinesi</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="commentsSection">
+    <!-- Makale Gönderme Bölümü -->
+    <section id="makaleler">
+        <h2>Makale Gönder</h2>
+        <form id="articleForm">
+            <label for="articleTitle">Makale Başlığı</label>
+            <input type="text" id="articleTitle" required>
+            <label for="articleContent">Makale İçeriği</label>
+            <textarea id="articleContent" required></textarea>
+            <button type="button" onclick="submitArticle()">Gönder</button>
+        </form>
+    </section>
+
+    <!-- Yorumlar Bölümü -->
+    <section id="yorumlar">
         <h2>Yorumlar</h2>
-        <form id="commentForm">
-            <textarea id="commentText" placeholder="Yorumunuzu yazın"></textarea>
-            <button type="submit">Yorum Yap</button>
-        </form>
-        <div id="commentsList"></div>
+        <div id="commentsSection"></div>
+        <textarea id="userComment" placeholder="Yorumunuzu buraya yazın..."></textarea>
+        <button type="button" onclick="submitComment()">Yorum Gönder</button>
     </section>
 
-    <section id="surveySection">
-        <h2>Anketler</h2>
-        <form id="surveyForm">
-            <input type="text" id="surveyQuestion" placeholder="Anket sorusu">
-            <input type="text" id="surveyOptions" placeholder="Seçenekler (virgülle ayırın)">
-            <button type="submit">Anket Oluştur</button>
-        </form>
-        <div id="surveyList"></div>
-    </section>
-
-    <section id="taskSection">
-        <h2>Görev Listesi</h2>
-        <form id="taskForm">
-            <input type="text" id="taskName" placeholder="Görev adı">
-            <input type="datetime-local" id="taskDeadline">
-            <button type="submit">Görev Ekle</button>
-        </form>
-        <div id="taskList"></div>
-    </section>
-
-    <section id="mathSection">
+    <!-- Hesap Makinesi Bölümü -->
+    <section id="hesapmakinesi">
         <h2>Hesap Makinesi</h2>
-        <form id="mathForm">
-            <input type="text" id="mathExpression" placeholder="Matematiksel ifade">
-            <button type="submit">Hesapla</button>
-        </form>
-        <div id="mathResult"></div>
+        <input type="number" id="input1" placeholder="Birinci Sayı" />
+        <input type="number" id="input2" placeholder="İkinci Sayı" />
+        <button type="button" onclick="calculate()">Hesapla</button>
+        <div id="result"></div>
     </section>
 
-    <section id="profileSection">
-        <h2>Kullanıcı Profili</h2>
-        <div id="profileUsername"></div>
-        <form id="updateProfileForm">
-            <input type="text" id="newUsername" placeholder="Yeni kullanıcı adı">
-            <input type="password" id="newPassword" placeholder="Yeni şifre">
-            <button type="submit">Profil Güncelle</button>
-        </form>
-        <form id="updatePasswordForm">
-            <input type="password" id="oldPassword" placeholder="Eski şifre">
-            <input type="password" id="newPassword" placeholder="Yeni şifre">
-            <button type="submit">Şifreyi Güncelle</button>
-        </form>
+    <!-- Grafik Çizme Bölümü -->
+    <section id="grafik">
+        <h2>Fonksiyon Grafiği Çiz</h2>
+        <input type="text" id="graphFunction" placeholder="Fonksiyon (örneğin, x^2)" />
+        <button type="button" onclick="drawGraph()">Grafiği Çiz</button>
+        <canvas id="graphCanvas"></canvas>
     </section>
-
-    <footer>
-        <p>© 2025 Bilimsel Tartışma ve Matematiksel Araçlar</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>

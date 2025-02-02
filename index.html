@@ -3,58 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bilimsel Çalışmalar</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+    <title>İleri Düzey Site</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Bilimsel Çalışmalar ve Tartışmalar</h1>
+        <div class="logo">İleri Site</div>
         <nav>
             <ul>
-                <li><a href="#makaleler">Makaleler</a></li>
-                <li><a href="#yorumlar">Yorumlar</a></li>
-                <li><a href="#hesapmakinesi">Hesap Makinesi</a></li>
+                <li><a href="#home">Ana Sayfa</a></li>
+                <li><a href="#calculator">Hesap Makinesi</a></li>
+                <li><a href="#discussion">Tartışma</a></li>
+                <li><a href="#articles">Makale Paylaş</a></li>
+                <li><a href="#user-profile">Profilim</a></li>
+                <li><a href="#contact">İletişim</a></li>
             </ul>
         </nav>
     </header>
+    
+    <section id="home">
+        <h1>Hoşgeldiniz</h1>
+        <p>Bu platformda çeşitli araçlardan faydalanabilir, makaleler paylaşabilir ve tartışmalara katılabilirsiniz.</p>
+    </section>
 
-    <!-- Makale Gönderme Bölümü -->
-    <section id="makaleler">
-        <h2>Makale Gönder</h2>
-        <form id="articleForm">
-            <label for="articleTitle">Makale Başlığı</label>
-            <input type="text" id="articleTitle" required>
-            <label for="articleContent">Makale İçeriği</label>
-            <textarea id="articleContent" required></textarea>
-            <button type="button" onclick="submitArticle()">Gönder</button>
+    <section id="calculator">
+        <h2>Hesap Makinesi</h2>
+        <div class="calculator">
+            <input type="text" id="display" disabled />
+            <div class="buttons">
+                <button class="btn" onclick="appendToDisplay('1')">1</button>
+                <button class="btn" onclick="appendToDisplay('2')">2</button>
+                <button class="btn" onclick="appendToDisplay('3')">3</button>
+                <button class="btn" onclick="appendToDisplay('+')">+</button>
+                <button class="btn" onclick="appendToDisplay('4')">4</button>
+                <button class="btn" onclick="appendToDisplay('5')">5</button>
+                <button class="btn" onclick="appendToDisplay('6')">6</button>
+                <button class="btn" onclick="appendToDisplay('-')">-</button>
+                <button class="btn" onclick="appendToDisplay('7')">7</button>
+                <button class="btn" onclick="appendToDisplay('8')">8</button>
+                <button class="btn" onclick="appendToDisplay('9')">9</button>
+                <button class="btn" onclick="appendToDisplay('*')">*</button>
+                <button class="btn" onclick="appendToDisplay('0')">0</button>
+                <button class="btn" onclick="clearDisplay()">C</button>
+                <button class="btn" onclick="calculateResult()">=</button>
+                <button class="btn" onclick="appendToDisplay('/')">/</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="discussion">
+        <h2>Tartışma Alanı</h2>
+        <div id="chat-room">
+            <div id="messages"></div>
+            <input type="text" id="message" placeholder="Mesaj yaz..." />
+            <button onclick="sendMessage()">Gönder</button>
+        </div>
+    </section>
+
+    <section id="articles">
+        <h2>Makale Paylaş</h2>
+        <textarea id="article-content" placeholder="Makale yazınız..."></textarea>
+        <button onclick="submitArticle()">Makale Gönder</button>
+    </section>
+
+    <section id="user-profile">
+        <h2>Profilim</h2>
+        <div>
+            <label for="username">Kullanıcı Adı:</label>
+            <input type="text" id="username" placeholder="Kullanıcı adını girin">
+        </div>
+        <div>
+            <label for="bio">Biyografi:</label>
+            <textarea id="bio" placeholder="Biyografi yazınız..."></textarea>
+        </div>
+        <button onclick="updateProfile()">Profili Güncelle</button>
+    </section>
+
+    <section id="contact">
+        <h2>İletişim</h2>
+        <form id="contact-form">
+            <label for="name">Adınız:</label>
+            <input type="text" id="name" placeholder="Adınızı girin" required />
+            <label for="email">E-posta:</label>
+            <input type="email" id="email" placeholder="E-postanızı girin" required />
+            <label for="message">Mesajınız:</label>
+            <textarea id="message" placeholder="Mesajınızı yazın" required></textarea>
+            <button type="submit">Gönder</button>
         </form>
     </section>
 
-    <!-- Yorumlar Bölümü -->
-    <section id="yorumlar">
-        <h2>Yorumlar</h2>
-        <div id="commentsSection"></div>
-        <textarea id="userComment" placeholder="Yorumunuzu buraya yazın..."></textarea>
-        <button type="button" onclick="submitComment()">Yorum Gönder</button>
-    </section>
-
-    <!-- Hesap Makinesi Bölümü -->
-    <section id="hesapmakinesi">
-        <h2>Hesap Makinesi</h2>
-        <input type="number" id="input1" placeholder="Birinci Sayı" />
-        <input type="number" id="input2" placeholder="İkinci Sayı" />
-        <button type="button" onclick="calculate()">Hesapla</button>
-        <div id="result"></div>
-    </section>
-
-    <!-- Grafik Çizme Bölümü -->
-    <section id="grafik">
-        <h2>Fonksiyon Grafiği Çiz</h2>
-        <input type="text" id="graphFunction" placeholder="Fonksiyon (örneğin, x^2)" />
-        <button type="button" onclick="drawGraph()">Grafiği Çiz</button>
-        <canvas id="graphCanvas"></canvas>
-    </section>
+    <footer>
+        <p>&copy; 2025 İleri Site. Tüm hakları saklıdır.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
